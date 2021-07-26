@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 
 // Companies
-Route::get('/companies', 'Companies@index')->name('companies');
-Route::get('/companies/create', 'Companies@create')->name('companiesCreate');
-Route::post('/companies/store', 'Companies@store')->name('companiesStore');
+Route::get('/companies', 'CompanyController@index')->name('companies');
+Route::get('/companies/create', 'CompanyController@create')->name('companiesCreate');
+Route::post('/companies/store', 'CompanyController@store')->name('companiesStore');
 
 Auth::routes(['register' => false]);
 

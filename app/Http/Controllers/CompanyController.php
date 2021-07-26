@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Company;
 
-class Companies extends Controller
+class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,39 +26,39 @@ class Companies extends Controller
     public function create()
     {
 
-        $options = array(
+        $options = [
             'title' => 'company',
             'action' => '/companies/store',
 
-        );
+        ];
 
-        $fields = array(
-            'name' => array(
+        $fields = [
+            'name' => [
                 'name' => 'name',
                 'label' => 'Name',
                 'type' => 'text',
                 'required' => 'required',
-            ),
+            ],
 
-            'email' => array(
+            'email' => [
                 'name' => 'email',
                 'label' => 'Email',
                 'type' => 'email',
                 'required' => 'required',
-            ),
-            'logo' => array(
+            ],
+            'logo' => [
                 'name' => 'logo',
                 'label' => 'Logo',
                 'type' => 'file',
                 'required' => '',
-            ),
-            'website' => array(
+            ],
+            'website' => [
                 'name' => 'website',
                 'label' => 'Website',
                 'type' => 'text',
                 'required' => '',
-            ),
-        );
+            ],
+        ];
 
         return view('create', ['options' => $options, 'fields' => $fields]);
     }
