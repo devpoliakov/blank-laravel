@@ -13,8 +13,9 @@ class Companies extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        return Company::get();
+        //return response()->json(Company::get());
     }
 
     /**
@@ -24,8 +25,42 @@ class Companies extends Controller
      */
     public function create()
     {
-        $company = new Company();
-        return response()->json($company);
+
+        $options = array(
+            'title' => 'company',
+            'action' => '/companies/store',
+
+        );
+
+        $fields = array(
+            'name' => array(
+                'name' => 'name',
+                'label' => 'Name',
+                'type' => 'text',
+                'required' => 'required',
+            ),
+
+            'email' => array(
+                'name' => 'email',
+                'label' => 'Email',
+                'type' => 'email',
+                'required' => 'required',
+            ),
+            'logo' => array(
+                'name' => 'logo',
+                'label' => 'Logo',
+                'type' => 'file',
+                'required' => '',
+            ),
+            'website' => array(
+                'name' => 'website',
+                'label' => 'Website',
+                'type' => 'text',
+                'required' => '',
+            ),
+        );
+
+        return view('create', ['options' => $options, 'fields' => $fields]);
     }
 
     /**
@@ -36,7 +71,15 @@ class Companies extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        return(Company::create([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'logo' => $request->logo,
+                    'website' => $request->website,
+        
+                ]));
+
     }
 
     /**
