@@ -13,13 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/', 'HomeController@index')->name('home');
 
-//Route::resource('/companies', Companies::class);
+// Companies
+Route::get('/companies', 'Companies@index')->name('companies');
+Route::get('/companies/create', 'Companies@create')->name('companiesCreate');
 
 Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
