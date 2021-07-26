@@ -16,7 +16,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ $field['label'] }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="{{ $field['type'] }}" class="form-control @error( $field['name'] ) is-invalid @enderror" name="{{ $field['name'] }}" value="{{ old( $field['name'] ) }}" required="{{ $field['required'] }}" autocomplete="{{ $field['name'] }}" autofocus>
+                                    <input id="name" type="{{ $field['type'] }}" class="form-control @error( $field['name'] ) is-invalid @enderror" name="{{ $field['name'] }}" value="{{ old( 'name' ) }}" {{ $field['required'] }} autocomplete="{{ $field['name'] }}" autofocus>
 
                                     @error( $field['name'] )
                                         <span class="invalid-feedback" role="alert">
