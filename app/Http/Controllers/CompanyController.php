@@ -28,8 +28,6 @@ class CompanyController extends Controller
 
         $options = [
             'title' => 'company',
-            'action' => '/companies/store',
-
         ];
 
         $fields = [
@@ -72,13 +70,18 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
 
-        return(Company::create([
-                    'name' => $request->name,
-                    'email' => $request->email,
-                    'logo' => $request->logo,
-                    'website' => $request->website,
-        
-                ]));
+        $options = [
+            'title' => 'company',
+            'object' => Company::create([
+                            'name' => $request->name,
+                            'email' => $request->email,
+                            'logo' => $request->logo,
+                            'website' => $request->website,
+                
+                        ])
+                ];
+
+        return view('created', ['options' => $options]);
 
     }
 

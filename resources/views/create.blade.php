@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Create') }} {{ $options['title'] }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ $options['action'] }}">
+                    <form method="POST" action="">
                         @csrf
 
                         @foreach ($fields as $field)

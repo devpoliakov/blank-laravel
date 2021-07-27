@@ -19,7 +19,7 @@ Route::get('/', 'HomeController@index')->name('home');
 // Companies
 Route::get('/companies', 'CompanyController@index')->name('companies');
 Route::get('/companies/create', 'CompanyController@create')->name('companiesCreate');
-Route::post('/companies/store', 'CompanyController@store')->name('companiesStore');
+Route::post('/companies/create', 'CompanyController@store')->name('companiesStore');
 
 Auth::routes(['register' => false]);
 
